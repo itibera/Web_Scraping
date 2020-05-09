@@ -12,18 +12,18 @@ try:
 except:
     print('Error in page loading..')
 soup = BeautifulSoup(page, 'html.parser')
-#print(soup)
+
 
 products = []
 prices = []
 for i in soup.findAll('div', {'class': '_3O0U0u'}):
-    #print(i)
+    
     name = i.find('div', {'class': '_3wU53n'})
 
     price=i.find('div',{'class':'_1vC4OE _2rQ-NK'})
     products.append(name)
     prices.append(price)
-    #print(i.find('div', {'class': '_1HmYoV _35HD7C'}))
+    
 
 df=DataFrame({'Products':products,'Prices':prices})
 print(df)
